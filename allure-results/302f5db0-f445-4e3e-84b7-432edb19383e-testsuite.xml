@@ -1,0 +1,102 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648639890916' stop='1648639891756'>
+    <name>WaitDemo: As a user, I can use Waits</name>
+    <title>WaitDemo: As a user, I can use Waits</title>
+    <test-cases>
+        <test-case start='1648639890917' status='passed' stop='1648639890919'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648639890919' status='passed' stop='1648639891754'>
+            <name>Given I open the browser and navigate to practiceSite &lt;url></name>
+            <title>Given I open the browser and navigate to practiceSite &lt;url></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps>
+                <step start='1648639890922' status='passed' stop='1648639891636'>
+                    <name>POST /session/:sessionId/url</name>
+                    <title>POST /session/:sessionId/url</title>
+                    <attachments>
+                        <attachment title='Request' source='3f61927f-cd59-4579-8032-d012360b2a7a-attachment.json' type='application/json' size='41'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1648639891636' status='passed' stop='1648639891753'>
+                    <name>POST /session/:sessionId/window/maximize</name>
+                    <title>POST /session/:sessionId/window/maximize</title>
+                    <attachments>
+                        <attachment title='Response' source='d1de2f32-862e-44c8-ad8b-c00173da97ab-attachment.json' type='application/json' size='58'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1648639891754' status='broken' stop='1648639891755'>
+            <name>Then I should see a Heading with text Practice Form Controls</name>
+            <title>Then I should see a Heading with text Practice Form Controls</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "I should see a Heading with text Practice Form Controls" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>Step "I should see a Heading with text Practice Form Controls" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+                	at Feature(E:\WebDriverIO doc\WebDriverIOCucumberProject\features\WaitDemo.feature):1:1
+                	at Scenario(As a user, I can use Waits):3:1
+                	at Step(I should see a Heading with text &lt;TabText>):6:9
+                </stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648639891755' status='undefined'>
+            <name>And validating different Waits</name>
+            <title>And validating different Waits</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648639891755' status='passed' stop='1648639891756'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

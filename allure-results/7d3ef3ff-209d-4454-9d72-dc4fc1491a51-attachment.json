@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//div[@id='colorbox']/div[2]"
+}

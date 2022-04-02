@@ -1,0 +1,110 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648556587666' stop='1648556595504'>
+    <name>The TravelrepublicHomepage: As a user, I can use Waits</name>
+    <title>The TravelrepublicHomepage: As a user, I can use Waits</title>
+    <test-cases>
+        <test-case start='1648556587666' status='passed' stop='1648556587667'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648556587667' status='passed' stop='1648556595500'>
+            <name>Given I open the browser and navigate to trsite http://www.seleniumframework.com/Practiceform/</name>
+            <title>Given I open the browser and navigate to trsite http://www.seleniumframework.com/Practiceform/</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps>
+                <step start='1648556587668' status='passed' stop='1648556595490'>
+                    <name>POST /session/:sessionId/url</name>
+                    <title>POST /session/:sessionId/url</title>
+                    <attachments>
+                        <attachment title='Request' source='7e581bd2-830b-4e58-b95c-4307ec6efddd-attachment.json' type='application/json' size='61'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1648556595490' status='passed' stop='1648556595499'>
+                    <name>POST /session/:sessionId/window/maximize</name>
+                    <title>POST /session/:sessionId/window/maximize</title>
+                    <attachments>
+                        <attachment title='Response' source='8512a1b7-3431-4870-847b-12648c81e026-attachment.json' type='application/json' size='59'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1648556595500' status='broken' stop='1648556595502'>
+            <name>Then I should see a Heading with text Practice Form Controls</name>
+            <title>Then I should see a Heading with text Practice Form Controls</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "I should see a Heading with text Practice Form Controls" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>Step "I should see a Heading with text Practice Form Controls" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+                	at Feature(E:\WebDriverIO doc\WebDriverIOCucumberProject\features\TRHomePage.feature):1:1
+                	at Scenario(As a user, I can use Waits):13:5
+                	at Step(I should see a Heading with text &lt;TabText>):16:9
+                </stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648556595502' status='broken' stop='1648556595503'>
+            <name>And validating different Waits</name>
+            <title>And validating different Waits</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "validating different Waits" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>Step "validating different Waits" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+                	at Feature(E:\WebDriverIO doc\WebDriverIOCucumberProject\features\TRHomePage.feature):1:1
+                	at Scenario(As a user, I can use Waits):13:5
+                	at Step(validating different Waits):17:9
+                </stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648556595503' status='passed' stop='1648556595503'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

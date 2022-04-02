@@ -1,0 +1,225 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648550653262' stop='1648550671375'>
+    <name>The TravelrepublicHomepage: As a user, I can Open TR HomePage</name>
+    <title>The TravelrepublicHomepage: As a user, I can Open TR HomePage</title>
+    <test-cases>
+        <test-case start='1648550653263' status='passed' stop='1648550653264'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648550653265' status='passed' stop='1648550661203'>
+            <name>Given I open the browser and navigate to trsite https://pp2.travelrepublic.co.uk</name>
+            <title>Given I open the browser and navigate to trsite https://pp2.travelrepublic.co.uk</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps>
+                <step start='1648550653267' status='passed' stop='1648550661066'>
+                    <name>POST /session/:sessionId/url</name>
+                    <title>POST /session/:sessionId/url</title>
+                    <attachments>
+                        <attachment title='Request' source='01035aae-4a89-452f-9777-b550281c0e36-attachment.json' type='application/json' size='48'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1648550661066' status='passed' stop='1648550661201'>
+                    <name>POST /session/:sessionId/window/maximize</name>
+                    <title>POST /session/:sessionId/window/maximize</title>
+                    <attachments>
+                        <attachment title='Response' source='18094feb-1293-4163-b39d-d0e515d41d25-attachment.json' type='application/json' size='59'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1648550661203' status='failed' stop='1648550671373'>
+            <name>Then I should see a holidaytab with text ww</name>
+            <title>Then I should see a holidaytab with text ww</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps>
+                <step start='1648550661206' status='passed' stop='1648550661347'>
+                    <name>POST /session/:sessionId/element</name>
+                    <title>POST /session/:sessionId/element</title>
+                    <attachments>
+                        <attachment title='Request' source='871be18a-ad7b-4117-902a-7989420dc9e9-attachment.json' type='application/json' size='62'/>
+                        <attachment title='Response' source='0cccd5f1-fd49-4db0-a79c-f19b1e56d408-attachment.json' type='application/json' size='83'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1648550661359' status='passed' stop='1648550661373'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550661872' status='passed' stop='1648550661881'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550662364' status='passed' stop='1648550662403'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550662865' status='passed' stop='1648550662895'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550663371' status='passed' stop='1648550663384'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550663872' status='passed' stop='1648550663883'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550664366' status='passed' stop='1648550664374'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550664871' status='passed' stop='1648550664879'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550665364' status='passed' stop='1648550665401'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550665868' status='passed' stop='1648550665880'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550666363' status='passed' stop='1648550666374'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550666872' status='passed' stop='1648550666888'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550667371' status='passed' stop='1648550667395'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550667868' status='passed' stop='1648550667875'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550668378' status='passed' stop='1648550668387'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550668871' status='passed' stop='1648550668878'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550669372' status='passed' stop='1648550669379'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550669872' status='passed' stop='1648550669879'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550670362' status='passed' stop='1648550670504'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550670859' status='passed' stop='1648550670868'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1648550671365' status='failed' stop='1648550671373'>
+                    <name>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</name>
+                    <title>GET /session/:sessionId/element/bb16b721-bab1-45c7-b89f-196dd75dae10/text</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Error: Expect $(`//span[text()='Holidays']`) to have text</message>
+                <stack-trace>Error: Expect $(`//span[text()='Holidays']`) to have text
+                
+                Expected: "ww"
+                Received: ""
+                    at World.&lt;anonymous> (E:\WebDriverIO doc\WebDriverIOCucumberProject\features\step-definitions\TRHomePage.ts:10:36)
+                    at processTicksAndRejections (node:internal/process/task_queues:96:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648550671374' status='passed' stop='1648550671375'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

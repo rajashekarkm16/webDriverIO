@@ -1,0 +1,79 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648466735530' stop='1648466735535'>
+    <name>The TravelrepublicHomepage: As a user, I can Open TR HomePage</name>
+    <title>The TravelrepublicHomepage: As a user, I can Open TR HomePage</title>
+    <test-cases>
+        <test-case start='1648466735531' status='passed' stop='1648466735532'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648466735533' status='broken' stop='1648466735534'>
+            <name>Given I Open the browser and Navigate to TRsite https://pp2.travelrepublic.co.uk/</name>
+            <title>Given I Open the browser and Navigate to TRsite https://pp2.travelrepublic.co.uk/</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "I Open the browser and Navigate to TRsite https://pp2.travelrepublic.co.uk/" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>Step "I Open the browser and Navigate to TRsite https://pp2.travelrepublic.co.uk/" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+                	at Feature(E:\WebDriverIO doc\WebDriverIOCucumberProject\features\TRHomePage.feature):1:1
+                	at Scenario(As a user, I can Open TR HomePage):3:5
+                	at Step(I Open the browser and Navigate to TRsite &lt;TRUrl>):5:9
+                </stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648466735534' status='broken' stop='1648466735534'>
+            <name>Then I should see a Header message saying SuperSecretPassword!</name>
+            <title>Then I should see a Header message saying SuperSecretPassword!</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Step "I should see a Header message saying SuperSecretPassword!" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.</message>
+                <stack-trace>Step "I should see a Header message saying SuperSecretPassword!" is not defined. You can ignore this error by setting cucumberOpts.ignoreUndefinedDefinitions as true.
+                	at Feature(E:\WebDriverIO doc\WebDriverIOCucumberProject\features\TRHomePage.feature):1:1
+                	at Scenario(As a user, I can Open TR HomePage):3:5
+                	at Step(I should see a Header message saying &lt;HomePageHeader>):6:9
+                </stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1648466735534' status='passed' stop='1648466735534'>
+            <name></name>
+            <title></title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-99.0.4844.82'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
