@@ -1,0 +1,32 @@
+IWebDriver extends  ->    ISearchContext ,   							IDisposable
+    |				|								      |
+
+Url,Title,PageSource  |	  FindElement -> IWebElement						   Dispose();
+CurrentWindowHandle	  FindElements -> ReadOnlyCollection<IWebElement>	             releases unmanaged res
+WindowHandles
+Close();
+Manage();
+Navigate();
+Quit();
+SwitchTo();
+
+
+IAtWebDriver extends IWebDriver
+    |
+
+IsDriverActive,Guid InstanceId, IsElementVisible(By by),IsElementPresent(By by)
+
+
+
+--------------
+IAtWebElement 
+
+extends -> 
+	
+1. ( IWebElement has TagName,Text,Enabled,Selected,Location,Size,Displayed,Clear(),Click(),GetAttribute(string attributeName
+GetCssValue(string propertyName) , GetProperty(string propertyName), SendKeys(string text), Submit()  ) 
+2. ILocatable (has Point LocationOnScreenOnceScrolledIntoView , ICoordinates ) 
+3. IWrapsElement (has WrappedElement) )
+				 
+
+

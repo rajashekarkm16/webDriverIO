@@ -1,0 +1,51 @@
+GRNSSSQLWEBST02.grn.uk.travelrepublic.com
+username: SQL_PreProduction
+passwor: SqlPr3p!
+
+
+
+---------
+DECLARE @utm bigint = 7265929285219769184
+
+SELECT top 100 * from AvailabilitySearchResult
+WHERE trputmid = @utm
+AND Timestamp > '2021-04-20'
+order by id desc
+
+recurring paymonthly - Enabled/Disabled check
+---------------------------
+--new version
+use PaymentsService
+SELECT top 10 * FROM RecurringPaymentsDomainParameter
+SELECT top 10 * from RecurringPaymentsDestination
+SELECT top 10 * FROM RecurringPaymentsFlightRoute
+
+old one
+SELECT top 10 * from DomainSettings_tbl where ParameterName like '%recurring%'
+
+-------------------------------------------------------
+
+SELECT top 100 * from HotelSearchResult
+WHERE TrpUtmId = @utm
+AND Timestamp > '2021-04-20'
+order by timestamp desc
+
+select top 100 *
+from MLT_VisitTracking_PP.dbo.HotelSearchResult hsr
+inner join MLT_VisitTracking_PP.dbo.HotelSearchResult_BoardOption hsrbo on
+hsr.Uid = hsrbo.HotelSearchResultId
+where TrpUtmId = @utm
+and hsr.Timestamp > '2021-04-20'
+order by Timestamp desc
+
+
+select * from bookingnote_tbl where bookingid = '18427227' 
+select * from payment_vwe where bookingid = '18427227' 
+
+
+Gets top 10 bookingID done with Promotional discount
+select Top 10 * from bookeditem_vwe where BookedItemTypeId=93 order by  CreateDate desc
+
+
+Booked Item Tabel in derwent query 
+select BookedItemId, BookedItemType,Title, SupplierName, SupplierRef,Quantity,HiddenFromCustomer,IsPriceHidden,ClientGross,TotalClientCost, SupplierUnitCost, LocalSupplierUnitCost from bookeditem_vwe where bookingid =18428720

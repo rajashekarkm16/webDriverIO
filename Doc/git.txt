@@ -1,0 +1,57 @@
+
+clone 
+git clone https://github.com/rajashekarkm16/webDriverIO.git
+
+>git status
+
+crate new branch in local 
+
+>git checkout -b branchname
+
+
+checkout to other branch 
+
+>git checkout branchname 
+
+to takes latest from other branch 
+
+>git pull origin branchname 
+
+commit
+
+> git commit -m "initial commit "
+
+
+
+push code
+
+> git push
+
+
+
+commit all files 
+> git add .
+
+
+commit one file 
+
+> git add filename 
+
+
+
+________________________
+Suggested new branch workflow
+git checkout master
+git pull origin master
+git checkout -b features
+Do work
+git commit -am "Added cool feature"
+git checkout master
+git pull origin master
+git checkout feature
+git rebase master for a single commit or git rebase -i master if you have a multiple commits and want to squash.
+git push origin feature
+
+
+
+

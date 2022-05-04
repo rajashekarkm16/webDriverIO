@@ -1,0 +1,21 @@
+console.log(await this.previousMonth.isEnabled())
+console.log(await dateTimeUtility.addOrSubtractDaysToCurrentDate(0,"DD"))
+        console.log(await dateTimeUtility.addOrSubtractDaysToCurrentDate(0,"MMMM"))
+        console.log(await dateTimeUtility.addOrSubtractDaysToCurrentDate(0,"YYYY"))
+
+
+
+(//div[@class='DayPicker-Months']//div[@class='DayPicker-Caption'])[1]
+
+
+ Static text on Date field and calender modal
+ Verify Reset Dates
+Verify Done functionality
+Verify Close Icon functionality
+Previous and Next month controls
+
+
+console.log("aria-disabled AttributeVale  :  "+  await (await this.daysField(i)).getAttribute("aria-disabled")) 
+
+
+

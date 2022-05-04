@@ -1,0 +1,64 @@
+>node -v -> node installed 
+>npm -v ->  npm installed 
+
+To create directory and navigate to it 
+>mkdir directoryname & cd directoryname 
+
+
+To intialize Project - execute below commands in the project terminal
+1. install npm 
+> npm init 
+
+2.
+npm install @wdio/cli  -> should be 0 vulenerabilities 
+
+Note : anything installed with npm a entry will be made in package.json(same as pom.xml in MavenProject) and dependency downloaded and stored in node_modules
+
+3. once you installed CLI after
+npx wdio config  -> configuaration helper will start and ask questions to choose requirement 
+
+4. create tsconfig.json file and  copy typescript json from terminal --> to see Autosuggestion while writing code
+5. to run your test - npx wdio run test/wdio.conf.ts
+
+			or
+
+Add above command in your script in package .json in script 
+
+"scripts": {
+    "test": "npx wdio  test/wdio.conf.ts"
+  },
+
+and then just type > npm test 
+
+[download cucumber extension to see format ]
+
+
+To create step defination
+download -> Tidy Gherkin App to chrome
+
+run specific test 
+wdio wdio.conf.js --spec ./features/step-definitions/WaitDemo.ts
+
+
+to make any class visibity outside its class 
+------
+export default new Classname()
+
+Terminal >
+npm run test --baseurl=
+
+
+package.json 
+--> npx wdio run .\\configs\\wdio.conf.ts --spec=./features/searchUnit/destination.feature & npx wdio-junit-to-html -i .\\reports\\junit -o .\\reports\\junit"
+
+
+pull from branch 
+
+git pull origin webdriveriotest
+
+
+
+
+
+
+

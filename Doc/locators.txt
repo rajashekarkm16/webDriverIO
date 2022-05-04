@@ -1,0 +1,109 @@
+ID
+Name
+Linktext
+Partial LinkText
+Tag Name
+Class Name
+CSS Selector
+XPath
+
+Veeresh@135
+
+MBTx$15kUz#07
+
+CSS
+-----------------------------------------------------------------------------------------------------------
+id - > tagname#idvalue  ,#idvalue
+class -> .classnamevalue  htmltag.classname  .c1.c2.c3 , htmltag.c1.c2.
+parenttag>childtag
+
+ex:
+
+1.<input id="username" type="email" tabindex="1" aria-labelledby="UIFormControl-label-2" class="form-control private-form__control login-email" value="">
+
+input#username or #username
+--
+input.form-control.private-form__control.login-email
+--
+input#username.form-control.private-form__control.login-email
+---
+input.login-email or .login-email
+--
+input[id='username']
+--
+input[type='email']
+--
+input[type='email'][tabindex='1']
+--
+
+contains( * ) in CSS usefull when the values of attributes are dynamic 
+-----------------------------------------------------
+input[id*=name]
+--
+input[class*=email]
+---
+
+starts with (^) 
+-------------
+input[id^=user]
+
+ends with ($ )
+----------
+input[id$=name]
+
+comma operator (, ) to inspect multiple elements 
+------
+
+<div class="google-login-wrapper">  1
+<a class="google-sign-in" target="_self">  2
+<span class="icon"></span>
+<span class="buttonText">Sign in with Google</span>   3
+</a>
+</div>
+
+div.google-login-wrapper,a.google-sign-in,span.buttonText
+
+
+first last nth -of-type- in css
+-----------
+<ul id=categories>
+<li> 1 </li>
+<li> 2 </li>
+<li> 3 </li>
+<li> 4 </li>
+<li> 5 </li>
+<li> 6 </li>
+</ul>
+
+ul#categories>li -> selects all li under ul#categories
+
+ul#categories>li:first-of-type   -> selects first li
+
+ul#categories>li:last-of-type    -> selects last li
+
+ul#categories>li:nth-of-type(4)
+
+ul#categories>li:nth-of-type(n)  -> gives list
+
+
+siblings (+)
+--------------------
+ul#categories>li:nth-of-type(2)+li -> selects third li 
+
+
+Not operator in CSS
+-------------
+div.private-form__input-wrapper>input:not(#username) -> selects password field
+div.private-form__input-wrapper>input:not([type='email'])
+
+div.private-form__input-wrapper>input:not(#password) -> selects email field 
+div.private-form__input-wrapper>input:not([type='password'])
+
+
+-----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+

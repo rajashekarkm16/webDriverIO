@@ -1,0 +1,33 @@
+npm install --global yarn
+
+yarn -v
+
+npm install --global vsts-npm-auth
+
+vsts-npm-auth -config .npmrc
+
+
+yarn
+
+yarn build
+
+yarn dev
+
+
+git clean -dfx            --> cleans node module
+
+yarn msw:generate - get new schemas 
+
+
+
+
+a-vsajja@emirates.onmicrosoft.com
+
+Wonderboy2123
+
+
+http://localhost:3001/hotels?tripId=e689f47e-ce6e-4583-ac5c-30ef85dded88&checkIn=2022-05-02&checkOut=2022-05-06&destId=170&rooms%5B0%5D%5Badults%5D=2&rooms%5B0%5D%5BchildAges%5D=%5B6%5D&rooms%5B1%5D%5Badults%5D=1&rooms%5B1%5D%5BchildAges%5D=%5B14%2C2%5D&rooms%5B2%5D%5Badults%5D=1&rooms%5B2%5D%5BchildAges%5D=%5B9%5D
+
+
+
+

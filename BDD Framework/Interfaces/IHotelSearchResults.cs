@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dnata.TravelRepublic.MobileWeb.UI.Models;
+
+namespace Dnata.TravelRepublic.MobileWeb.UI.Interfaces
+{
+    public interface IHotelSearchResults : IBase
+    {
+        int GetHotelToSelect();
+        int RandomizeHotelToSelect();
+        void CaptureHotelInformation(int hotelToSelect);
+        HotelInformation GetHotelInformation();
+        HotelInformation CaptureAndReturnHotelInformation(int hotelToSelect);
+        HotelInformation CaptureAndReturnRecommenderHotelInformation(int hotelToSelect);
+        int GetResultsCount();
+        void SelectHotel(int hotelToSelect);
+        string GetCMAComplianceText();
+        string GetLocalCharges(int hotelToSelect);
+        string GetIncludesLocalChargesDescription();
+        bool HasLoadMoreResults();
+        void LoadMoreResults(int counter = 1);
+        void EditSortOption();
+        bool VerifyAppliedSortOption(string option);
+        bool VerifyNoDuplicates();
+        void SelectMapView();
+        void CloseLocalTaxPopup();
+        decimal GetHolidayTotalPrice(int hotelToSelect);
+        decimal GetHolidayPerPersonPrice(int hotelToSelect);
+        void ViewFlightDetails(int hotelToSelect);
+        string CaptureNoRoomsMessage();
+        void ClickStartNewSearchButton();
+        bool IsNoRoomsMessageDisplayed();
+        int GetLoadMoreLocation();
+        bool IsStartNewSearchButtonDisplayed();
+        void SelectFilters();
+        void ClickSearchAlternativeDatesButton();
+        double GetHotelReviewsCount(int hotelToSelect);
+        string GetHotelBoardType(int hotelToSelect);
+        int GetHotelToSelect(string hotelNameToSelect);
+        bool IsHotelSearchResultsPageLoaded();
+        string GetHotelsInDestinationText();
+        List<decimal> GetAllHotelPrices();
+        decimal GetHotelPrice(int hotelToSelect);
+        decimal GetHotelWasPrice(int hotelToSelect);
+        string GetHotelSahLabelText(int hotelToSelect);
+        string GetPromoMessageonHotelcardorEstab();
+        string GetHotelPillText(int hotelToSelect);
+        int GetHotelSearchResultsCount();
+        // Filter Validation methods
+        bool ValidatePriceFilter(decimal filterPrice);
+        bool ValidateStarRating(string filteredOption);
+        bool ValidateCustomerRating(string filteredOption);
+        bool ValidateBoardType(string filteredOption);
+        bool ValidateBoardType(List<string> filteredOption);
+        void SelectHotelFromRecommender(int recommenderHotelToSelect);
+        void CaptureRecommenderHotelInformation(int hotelToSelect);
+        bool IsRecommenderDisplayed();
+        string GetRecommenderPriceCaption();
+        List<string> GetAllHotelNames();
+        void CloseSortModel();
+        bool IsSecureTodayPillDisplayed(int hotelToSelect);
+        decimal GetAmountFromSecureTodayPill(int hotelToSelect);
+        void ClickSecureTodayPill(int hotelToSelect);
+        decimal GetAmountFromDepositDialogModal();
+        bool IsPayMonthlyPillDisplayed(int hotelToSelect);
+        decimal GetAmountFromPayMonthlyPill(int hotelToSelect);
+        void ClickPayMonthlyPill(int hotelToSelect);
+        decimal GetAmountFromPayMonthlyDialogModal();
+        bool IsFreeCancellationMessageDisplayed(int hotelToSelect);
+        void ClickFreeCancellationMessage(int hotelToSelect);
+        string GetDialogContent();
+        string GetDialogHeader();
+        void CloseDialogContentPopUp();
+        bool IsNonRefunableMessageDisplayed(int hotelToSelect);
+        void ClickNonRefundableMessage(int hotelToSelect);
+        int GetPlatformAdsCount();
+        int GetSponseredHotelsCount();
+        string GetCovidCoverPlusText();
+        string GetCovidCoverDailogContentInPromotionbox();
+        string GetCovidCoverDailogContentinPriceincludes();
+        string GetCovidPlusTextinPriceincludesSection();
+        string GetNoAvailablityMessage();
+        string GetBoardTypeByHotelName(string hotelName);
+        bool AreDatesAdjusted();
+    }
+}
