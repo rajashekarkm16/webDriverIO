@@ -5,7 +5,6 @@ import { SearchCriteria } from '../modals/searchCriteria';
 import SearchUnit from '../components/searchUnit';
 
 //#region [Home Page Steps]
-
 Given(/^I am on the \'(.*)\' page$/, async (pageName) => {
 	await HomePage.open(pageName);
 });
@@ -17,7 +16,6 @@ When(/^I select \'(.*)\' tab$/, async (tabName) => {
 When(/^I click search button$/, async () => {
 	await SearchUnit.clickonSearchButton();
 });
-
 //#region [Destination]
 
 When(/^I select destination as \'(.*)\'$/, async (destination) => {
@@ -28,7 +26,6 @@ When(/^I select destination as \'(.*)\'$/, async (destination) => {
 Then(/^Destination placeholder should be \'(.*)\'$/, async (placeHolderName) => {
 	await SearchUnit.verifyDestinationPlaceholder(placeHolderName);
 });
-
 
 When(/^I open destination autocompleter$/, async () => {
 	await SearchUnit.openDestinationAutoCompleter();
@@ -116,9 +113,9 @@ When(/^I select a checkin date \'(.*)\' days ahead from now$/, async (checkInDat
 	await SearchUnit.selectDate(SearchCriteria.CheckinDate);
 });
 
-When(/^I select a checkout date \'(.*)\' days later$/, async (checkOutDate) => {	
-	const checkInDaysFromToday= await DateTimeUtility.getDateDifference(await DateTimeUtility.addOrSubtractDaysToCurrentDate(0),SearchCriteria.CheckinDate,"days")
-	SearchCriteria.CheckoutDate = await DateTimeUtility.addOrSubtractDaysToCurrentDate(Number(checkInDaysFromToday) + Number(checkOutDate));	
+When(/^I select a checkout date \'(.*)\' days later$/, async (checkOutDate) => {
+	const checkInDaysFromToday = await DateTimeUtility.getDateDifference(await DateTimeUtility.addOrSubtractDaysToCurrentDate(0), SearchCriteria.CheckinDate, "days")
+	SearchCriteria.CheckoutDate = await DateTimeUtility.addOrSubtractDaysToCurrentDate(Number(checkInDaysFromToday) + Number(checkOutDate));
 	await SearchUnit.selectDate(SearchCriteria.CheckoutDate);
 });
 
@@ -151,6 +148,10 @@ When(/^I click on cross icon$/, async () => {
 	await SearchUnit.closeCalenderPopUp()
 });
 
+When(/^I close calendar modal on mobile$/, async () => {
+	await SearchUnit.closeCalendarModalOnMobile()
+});
+
 Then(/^Calendar modal should be closed$/, async () => {
 	await SearchUnit.verifyCalendarModalClosed()
 });
@@ -167,19 +168,19 @@ Then(/^Current day should be highlighted$/, async () => {
 	await SearchUnit.verifyDefaultSelectedDay();
 });
 
-Then(/^Footer message should display \'(.*)\'$/, async(footerMessage) => {
+Then(/^Footer message should display \'(.*)\'$/, async (footerMessage) => {
 	await SearchUnit.validateFooterMessage(footerMessage);
 });
 
-Then(/^Footer message should display selected checkin date and checkout date$/, async() => {
-	await SearchUnit.validateDateSelectedInFooter(SearchCriteria.CheckinDate,SearchCriteria.CheckoutDate);
+Then(/^Footer message should display selected checkin date and checkout date$/, async () => {
+	await SearchUnit.validateDateSelectedInFooter(SearchCriteria.CheckinDate, SearchCriteria.CheckoutDate);
 });
 
-Then(/^Footer message should display number of nights$/, async() => {
-	await SearchUnit.validateNumberOfNightsInFooter(SearchCriteria.CheckinDate,SearchCriteria.CheckoutDate);
+Then(/^Footer message should display number of nights$/, async () => {
+	await SearchUnit.validateNumberOfNightsInFooter(SearchCriteria.CheckinDate, SearchCriteria.CheckoutDate);
 });
 
-Then(/^Reset link should not be displayed$/, async() => {
+Then(/^Reset link should not be displayed$/, async () => {
 	await SearchUnit.verifyResetLinkNotDisplayed();
 });
 
@@ -191,18 +192,16 @@ Then(/^Reset link should be displayed$/, async () => {
 	await SearchUnit.verifyResetLinkDisplayed();
 });
 
-
-Then(/^Done button should not be displayed$/, async() => {
+Then(/^Done button should not be enabled$/, async () => {
 	await SearchUnit.verifyDoneButtonNotEnabled()
 });
 
-
-Then(/^Done button should be enabled and displayed$/, async() => {
+Then(/^Done button should be displayed and enabled$/, async () => {
 	await SearchUnit.verifyDoneButtonDisplayed();
 	await SearchUnit.verifyDoneButtonEnabled();
 });
 
-When(/^I click on done$/, async() => {
+When(/^I click on done$/, async () => {
 	await SearchUnit.clickDoneonCalendar();
 });
 
@@ -210,14 +209,12 @@ Then(/^Selected checkin date should be displayed in date field$/, async () => {
 	await SearchUnit.validateCheckinDateSelectedInDateField(SearchCriteria.CheckinDate);
 });
 
-Then(/^Checkin date should be highlighted in date modal$/, async() => {
+Then(/^Checkin date should be highlighted in date modal$/, async () => {
 	await SearchUnit.verifyCheckiDateHighlightedInCalendarModal(SearchCriteria.CheckinDate);
 });
 
-
-
-Then(/^Selected checkin date and checkout date should be displayed in date field$/, async() => {
-	await SearchUnit.validateDateSelectedInDateField(SearchCriteria.CheckinDate,SearchCriteria.CheckoutDate);
+Then(/^Selected checkin date and checkout date should be displayed in date field$/, async () => {
+	await SearchUnit.validateDateSelectedInDateField(SearchCriteria.CheckinDate, SearchCriteria.CheckoutDate);
 });
 
 Then(/^Previous icon should be disabled$/, async () => {
@@ -228,33 +225,39 @@ Then(/^Next icon should be enabled$/, async () => {
 	await SearchUnit.verifyNextIconEnabled();
 });
 
-When(/^I click on next icon$/, async() => {
+When(/^I click on next icon$/, async () => {
 	await SearchUnit.clickonNextIcon();
 });
 
-Then(/^I should be able to see the next month$/, async() => {
+Then(/^I should be able to see the next month$/, async () => {
 	await SearchUnit.verifyIsNextMonthDisplayed();
 });
 
-Then(/^Previous icon should be enabled$/, async() => {
+Then(/^Previous icon should be enabled$/, async () => {
 	await SearchUnit.verifyPreviousIconEnabled();
 });
 
-When(/^I click on previous icon$/, async() => {
+When(/^I click on previous icon$/, async () => {
 	await SearchUnit.clickonPreviousIcon();
 });
 
-Then(/^It should navigate to previous month$/, async() => {
+Then(/^It should navigate to previous month$/, async () => {
 	await SearchUnit.verifyIsPreviousMonthDisplayed();
 });
 
-Then(/^calendar should display 36 months from current month$/, async() => {
+Then(/^calendar should display 36 months from current month$/, async () => {
 	await SearchUnit.verifyNumberOfMonthsTobedisplayedinCalendar();
 });
 
-Then(/^Days before today should be disabled$/, async() => {
+Then(/^Days before today should be disabled$/, async () => {
 	await SearchUnit.verifyDisableDaysBeforeToday();
 });
+
+
+Then(/^Should not allow to enter date manually$/, async() => {
+	await SearchUnit.ValidateManualEnterDate()
+});
+
 
 //#endregion [Dates]
 

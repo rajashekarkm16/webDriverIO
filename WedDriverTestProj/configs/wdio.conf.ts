@@ -16,7 +16,7 @@ export const config: WebdriverIO.Config = {
     },
     //###### Spec and Suite File Location ####################################
     specs: [
-        './features/**/*.feature'
+        './features/**/SortBy.feature'
     ],
     suites: {
         regression: [

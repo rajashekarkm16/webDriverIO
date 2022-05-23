@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ptest": "npx wdio run ..\\configs\\wdio.conf_parallel.ts & npx allure generate --clean .\\allure-results\\",
-    "test": "npx wdio run .\\configs\\wdio.conf.ts --spec=./features/searchUnit/dates.feature & npx wdio-junit-to-html -i .\\reports\\junit -o .\\reports\\junit",
+    "test": "npx wdio run .\\configs\\wdio.conf.ts & npx wdio-junit-to-html -i .\\reports\\junit -o .\\reports\\junit",
     "mtest": "npx wdio run .\\configs\\wdio.conf_mocha.ts & npx wdio-junit-to-html -i .\\junit -o .\\junit",
     "mptest": "npx wdio run .\\configs\\wdio.conf_mocha_parallel.ts & npx allure generate --clean .\\allure-results\\",
     "mpdtest": "npx wdio run .\\configs\\wdio.conf_parallel_devices.ts & npx allure generate --clean .\\allure-results\\",
@@ -26,7 +26,7 @@
     "@wdio/selenium-standalone-service": "^7.17.3",
     "@wdio/spec-reporter": "^7.17.3",
     "allure-commandline": "^2.17.2",
-    "chromedriver": "^99.0.0",
+    "chromedriver": "^101.0.0",
     "moment": "^2.29.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2",

@@ -1,5 +1,3 @@
-import { CucumberAdapter } from "@wdio/cucumber-framework";
-
 export default class BasePage {
 
     //#region  [Getter/Setters]
@@ -7,6 +5,7 @@ export default class BasePage {
     //#region [Common elelement Property)]
 
     private get acceptCookiesButton() { return $("//button/span[text()='Accept and Continue']"); }
+    private get modalCloseIcon() { return $("//*[contains(@class,'CrossIcon')]"); }
 
     //#endregion
 
@@ -31,7 +30,7 @@ export default class BasePage {
 
     async acceptCookies() {
         try {
-            await (await this.acceptCookiesButton).click({ timeout: 2000 });
+            await (await this.acceptCookiesButton).click();
         }
         catch (error) { }
     }
@@ -47,6 +46,13 @@ export default class BasePage {
     async getActiveElelemnt()
     {
         return await browser.getActiveElement();
+    }
+
+    async closeModal() {
+        var isModalOpen = await (await this.modalCloseIcon).isDisplayed();
+            if (isModalOpen) {
+                await (await this.modalCloseIcon).click();
+            }
     }
     //#endregion [ common Page level Method]
 }

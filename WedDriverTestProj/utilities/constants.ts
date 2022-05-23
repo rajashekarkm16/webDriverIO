@@ -14,4 +14,8 @@
         "unselected":['rgba(246,245,245,1)']
     };
 
+    export const SortByOptions ={
+        "options" : ["Recommended","Price (Cheapest first)","Customer Rating (Highest first)","Star Rating (Highest First)"]
+    };
+
     export default  Waits;

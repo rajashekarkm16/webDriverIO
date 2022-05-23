@@ -1,0 +1,357 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1653308037557' stop='1653308113668'>
+    <name>SortBy</name>
+    <title>SortBy</title>
+    <test-cases>
+        <test-case start='1653308037606' status='passed' stop='1653308055283'>
+            <name>view of sort option</name>
+            <title>view of sort option</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308037610' status='passed' stop='1653308054243'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308054243' status='passed' stop='1653308054578'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308054578' status='passed' stop='1653308054608'>
+                    <name>Then Sort by 'RECOMMENDED' should be checked</name>
+                    <title>Then Sort by 'RECOMMENDED' should be checked</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308054609' status='passed' stop='1653308054837'>
+                    <name>And Sort modal should display all sort options</name>
+                    <title>And Sort modal should display all sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308054837' status='passed' stop='1653308054867'>
+                    <name>And Close sort modal Icon should be displayed</name>
+                    <title>And Close sort modal Icon should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='9ddec342-843a-4c33-b70f-70068bbfc126-attachment.png' type='image/png' size='172531'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308055284' status='passed' stop='1653308060024'>
+            <name>Verify sort criteria added to query</name>
+            <title>Verify sort criteria added to query</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308055285' status='passed' stop='1653308058570'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308058570' status='passed' stop='1653308058829'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308058829' status='passed' stop='1653308059584'>
+                    <name>And I select PRICE_LOWEST_FIRST sort by option</name>
+                    <title>And I select PRICE_LOWEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308059584' status='passed' stop='1653308059741'>
+                    <name>Then Selected sort by Price should be displayed</name>
+                    <title>Then Selected sort by Price should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308059741' status='passed' stop='1653308059753'>
+                    <name>And Sort criteria PRICE_LOWEST_FIRST added to query url</name>
+                    <title>And Sort criteria PRICE_LOWEST_FIRST added to query url</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='35518aad-0c3c-4fd0-b7a1-685341e9ff24-attachment.png' type='image/png' size='149856'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308060025' status='passed' stop='1653308064904'>
+            <name>Verify sort criteria added to query</name>
+            <title>Verify sort criteria added to query</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308060026' status='passed' stop='1653308063376'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308063376' status='passed' stop='1653308063725'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308063725' status='passed' stop='1653308064364'>
+                    <name>And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option</name>
+                    <title>And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308064365' status='passed' stop='1653308064617'>
+                    <name>Then Selected sort by Customer Rating should be displayed</name>
+                    <title>Then Selected sort by Customer Rating should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308064617' status='passed' stop='1653308064623'>
+                    <name>And Sort criteria CUSTOMER_RATING_HIGHEST_FIRST added to query url</name>
+                    <title>And Sort criteria CUSTOMER_RATING_HIGHEST_FIRST added to query url</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='259cb797-c768-48b7-ba34-8742de20756a-attachment.png' type='image/png' size='151285'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308064905' status='passed' stop='1653308069581'>
+            <name>Verify sort criteria added to query</name>
+            <title>Verify sort criteria added to query</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308064906' status='passed' stop='1653308068230'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308068230' status='passed' stop='1653308068553'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308068553' status='passed' stop='1653308069057'>
+                    <name>And I select STAR_RATING_HIGHEST_FIRST sort by option</name>
+                    <title>And I select STAR_RATING_HIGHEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308069057' status='passed' stop='1653308069286'>
+                    <name>Then Selected sort by Star Rating should be displayed</name>
+                    <title>Then Selected sort by Star Rating should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308069286' status='passed' stop='1653308069291'>
+                    <name>And Sort criteria STAR_RATING_HIGHEST_FIRST added to query url</name>
+                    <title>And Sort criteria STAR_RATING_HIGHEST_FIRST added to query url</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='1771a9a7-e623-473a-9f1f-ede105700f17-attachment.png' type='image/png' size='157826'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308069581' status='passed' stop='1653308084415'>
+            <name>Verify sort in hotel search results</name>
+            <title>Verify sort in hotel search results</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308069581' status='passed' stop='1653308072791'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308072791' status='passed' stop='1653308073115'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308073115' status='passed' stop='1653308073344'>
+                    <name>And I select PRICE_LOWEST_FIRST sort by option</name>
+                    <title>And I select PRICE_LOWEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308073344' status='passed' stop='1653308073893'>
+                    <name>Then Selected sort by Price should be displayed</name>
+                    <title>Then Selected sort by Price should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308073893' status='passed' stop='1653308083843'>
+                    <name>And Search results are sorted based on the selected Price</name>
+                    <title>And Search results are sorted based on the selected Price</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='831b4744-8be5-4a25-87d4-756d45f900d0-attachment.png' type='image/png' size='827712'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308084415' status='passed' stop='1653308099482'>
+            <name>Verify sort in hotel search results</name>
+            <title>Verify sort in hotel search results</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308084416' status='passed' stop='1653308087629'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308087629' status='passed' stop='1653308087967'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308087967' status='passed' stop='1653308088545'>
+                    <name>And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option</name>
+                    <title>And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308088545' status='passed' stop='1653308088788'>
+                    <name>Then Selected sort by Customer Rating should be displayed</name>
+                    <title>Then Selected sort by Customer Rating should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308088789' status='passed' stop='1653308098899'>
+                    <name>And Search results are sorted based on the selected Customer Rating</name>
+                    <title>And Search results are sorted based on the selected Customer Rating</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='b041d7ee-cf80-41a4-9648-16cadbbc86a6-attachment.png' type='image/png' size='743174'/>
+            </attachments>
+        </test-case>
+        <test-case start='1653308099482' status='passed' stop='1653308113668'>
+            <name>Verify sort in hotel search results</name>
+            <title>Verify sort in hotel search results</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3003/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Mobile Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPhone X'/>
+            </parameters>
+            <steps>
+                <step start='1653308099483' status='passed' stop='1653308102705'>
+                    <name>Given Hotel search result page is open for destination 'Palm Jumeirah'</name>
+                    <title>Given Hotel search result page is open for destination 'Palm Jumeirah'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308102705' status='passed' stop='1653308103013'>
+                    <name>When I open sort options</name>
+                    <title>When I open sort options</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308103013' status='passed' stop='1653308103532'>
+                    <name>And I select STAR_RATING_HIGHEST_FIRST sort by option</name>
+                    <title>And I select STAR_RATING_HIGHEST_FIRST sort by option</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308103532' status='passed' stop='1653308103718'>
+                    <name>Then Selected sort by Star Rating should be displayed</name>
+                    <title>Then Selected sort by Star Rating should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1653308103718' status='passed' stop='1653308113172'>
+                    <name>And Search results are sorted based on the selected Star Rating</name>
+                    <title>And Search results are sorted based on the selected Star Rating</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='dd31b605-e6f0-440c-aee2-7eba87ce33f7-attachment.png' type='image/png' size='743174'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

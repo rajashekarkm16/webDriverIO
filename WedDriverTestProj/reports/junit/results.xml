@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SortBy" timestamp="2022-05-23T17:43:57" time="76.125" tests="7" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="featureName" value="SortBy"/>
+      <property name="capabilities" value="chrome.101_0_4951_54.windows"/>
+      <property name="featureFile" value=".\features\hotelSearchResults\SortBy.feature"/>
+    </properties>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="view of sort option" time="17.676">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ Then Sort by 'RECOMMENDED' should be checked✅ And Sort modal should display all sort options✅ And Close sort modal Icon should be displayed
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort criteria added to query" time="4.74">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select PRICE_LOWEST_FIRST sort by option✅ Then Selected sort by Price should be displayed✅ And Sort criteria PRICE_LOWEST_FIRST added to query url
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort criteria added to query" time="4.879">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option✅ Then Selected sort by Customer Rating should be displayed✅ And Sort criteria CUSTOMER_RATING_HIGHEST_FIRST added to query url
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort criteria added to query" time="4.676">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select STAR_RATING_HIGHEST_FIRST sort by option✅ Then Selected sort by Star Rating should be displayed✅ And Sort criteria STAR_RATING_HIGHEST_FIRST added to query url
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort in hotel search results" time="14.834">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select PRICE_LOWEST_FIRST sort by option✅ Then Selected sort by Price should be displayed✅ And Search results are sorted based on the selected Price
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort in hotel search results" time="15.067">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select CUSTOMER_RATING_HIGHEST_FIRST sort by option✅ Then Selected sort by Customer Rating should be displayed✅ And Search results are sorted based on the selected Customer Rating
+]]></system-out>
+    </testcase>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.SortBy" name="Verify sort in hotel search results" time="14.186">
+      <system-out><![CDATA[
+✅ Given Hotel search result page is open for destination 'Palm Jumeirah'✅ When I open sort options✅ And I select STAR_RATING_HIGHEST_FIRST sort by option✅ Then Selected sort by Star Rating should be displayed✅ And Search results are sorted based on the selected Star Rating
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

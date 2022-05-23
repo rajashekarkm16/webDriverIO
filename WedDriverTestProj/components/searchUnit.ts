@@ -1,8 +1,6 @@
 import Page from '../pageobjects/basePage'
 import DateTimeUtility from '../utilities/dateTimeUtility';
-import { MaxCalendarMonths,Color } from '../utilities/constants'
-
-
+import { MaxCalendarMonths, Color } from '../utilities/constants'
 
 export class SearchUnit extends Page {
 
@@ -27,26 +25,26 @@ export class SearchUnit extends Page {
     private get crossIcon() { return $("//button/*[contains(@class,'CrossIcon')]"); }
     private get listOfResultsDestinationAutoCompleter() { return $$("//ul[contains(@aria-labelledby,'category')]//li"); }
     private async resultDestinationAutoCompleter(searchResult) {
-        return await $("//ul[contains(@aria-labelledby,'category')]//li//p[contains(normalize-space(.), '" + searchResult + "')]");
+        return await $("//ul[contains(@aria-labelledby,'category')]//li//p[contains(normalize-space(.),'" + searchResult + "')]");
     }
     private get destinationError() { return $("//p[text()='No matches found']"); }
 
     //#endregion
 
     //#region [Dates]
-    private get dateHeader() {return $("//div[text()='Dates']");}
+    private get dateHeader() { return $("//div[text()='Dates']"); }
     private get buttonAddDates() { return $("//div[text()='Dates']/preceding-sibling::button"); }
-    private get dateModalHeader() {return $("//div[@role='tooltip']//h5[contains(@class,'Heading')]");}
+    private get dateModalHeader() { return $("//div[@role='tooltip']//h5[contains(@class,'Heading')] | //div[@role='dialog']//*[contains(@class,'Heading')]"); }
     private get calenderDefaultMonth() { return $("//div[@class='DayPicker-Months']/div[1]/div[@class='DayPicker-Caption']"); }
-    private get defaultSelectedDay() {return $("div.DayPicker-Day--today div div");}
+    private get defaultSelectedDay() { return $("div.DayPicker-Day--today div div"); }
     private get calenderForm() { return $("//div[@class='DayPicker-Months']"); }
-    private get previousMonth() { return $("//div[@class='DayPicker-wrapper']//*[contains(@class,'LeftIcon')]/.."); }     
+    private get previousMonth() { return $("//div[@class='DayPicker-wrapper']//*[contains(@class,'LeftIcon')]/.."); }
     private get nextMonth() { return $("//div[@class='DayPicker-wrapper']//*[contains(@class,'RightIcon')]/.."); }
-    private get monthAndYear() {return $$("//div[@class='DayPicker-Caption']/div");}
-    private get footerMessage() {return $("//div[@role='tooltip']/div//div[contains(@class,StyleUtility)]//p");}
-    private get resetLink() {return $("//a[contains(text(),'Reset')]");}
-    private get confirmDates() {return $("//span[text()='Done']/parent::button");}  
-    private get daysSelected() {return $$("div.DayPicker-Day--selected");}      
+    private get monthAndYear() { return $$("//div[@class='DayPicker-Caption']/div"); }
+    private get footerMessage() { return $("//div[@role='tooltip' or@role='dialog']//div[contains(@class,StyleUtility)]//p"); }
+    private get resetLink() { return $("//a[contains(text(),'Reset')]"); }
+    private get confirmDates() { return $("//span[text()='Done' or text()='Next' ]/parent::button"); }
+    private get daysSelected() { return $$("div.DayPicker-Day--selected"); }
     private async calenderDay(areaLabelValue) {
         return await $("//div[@aria-label='" + areaLabelValue + "']");
 
@@ -125,14 +123,15 @@ export class SearchUnit extends Page {
     //#region  [Methods]
 
     async clickonSearchButton() {
+        await (await this.searchButton).waitForClickable({ timeoutMsg: "Seach button is not clickable" });
         await (await this.searchButton).click();
     }
 
     //#region  [Destination]
 
     async openDestinationAutoCompleter() {
-        if(!await (this.headerDestinationAutoCompleter).isDisplayed())
-        await this.textboxDestination.click();
+        if (!await (this.headerDestinationAutoCompleter).isDisplayed())
+            await this.textboxDestination.click();
     }
 
     async populateDestination(destination) {
@@ -169,25 +168,26 @@ export class SearchUnit extends Page {
         await this.populateDestination(destination);
         await this.verifyResultsInDestinationAutoCompleter(destination);
         await this.selectDestinationFromAutoCompleter(destination);
-        await this.verifyDestination(destination);        
+        await this.verifyDestination(destination);
 
     }
-    async populateSearch(destination, checkinDaysFromToday, durationOfStay, guestInfo=[{"Adults": 1,"Child": [1]},{"Adults": 2,"Child": [3]}]){
+    async populateSearch(destination, checkinDaysFromToday, durationOfStay, guestInfo = [{ "Adults": 1, "Child": [1] }, { "Adults": 2, "Child": [3] }]) {
         await this.selectDestination(destination)
-        await this.populateDate(checkinDaysFromToday, durationOfStay); 
-        await this.selectRoomAndGuests(guestInfo)         
-        await this.searchButton.click(); 
+        await this.populateDate(checkinDaysFromToday, durationOfStay);
+        await this.selectRoomAndGuests(guestInfo)
+        await this.searchButton.click();
     }
 
-    async populateSearchByDestination(destination : string = 'Dubai'){
+    async populateSearchByDestination(destination: string = 'Dubai') {
         await this.selectDestination(destination)
-        await this.populateDate();    
-        await this.searchButton.click(); 
+        await this.populateDate();
+        await this.searchButton.click();
     }
 
-    async populateDate(checkinDaysFromToday: number =60, durationOfStay: number = 5){
+    async populateDate(checkinDaysFromToday: number = 60, durationOfStay: number = 5) {
         await this.selectDate(await DateTimeUtility.addOrSubtractDaysToCurrentDate(Number(checkinDaysFromToday)));
-        await this.selectDate(await DateTimeUtility.addOrSubtractDaysToCurrentDate(Number(checkinDaysFromToday)+Number(durationOfStay)));
+        await this.selectDate(await DateTimeUtility.addOrSubtractDaysToCurrentDate(Number(checkinDaysFromToday) + Number(durationOfStay)));
+        await this.closeModal();
     }
 
     async verifyDestinationPlaceholder(validationMessage) {
@@ -224,8 +224,8 @@ export class SearchUnit extends Page {
 
     async verifyHotelCountInDestinationAutoCompleter() {
 
-        await this.listOfResultsDestinationAutoCompleter.forEach(async(element: any) => {            
-             await expect(await element).toHaveTextContaining("hotels", { ignoreCase: true })
+        await this.listOfResultsDestinationAutoCompleter.forEach(async (element: any) => {
+            await expect(await element).toHaveTextContaining("hotels", { ignoreCase: true })
         });
 
     }
@@ -242,7 +242,7 @@ export class SearchUnit extends Page {
 
     async verifyActiveElementText(activeElelementText) {
         const activeElement = await this.getActiveElelemnt();
-        await expect(await  $(activeElement).parentElement()).toHaveTextContaining(activeElelementText);
+        await expect(await $(activeElement).parentElement()).toHaveTextContaining(activeElelementText);
     }
 
     async verifyNoMatchesFound() {
@@ -262,24 +262,21 @@ export class SearchUnit extends Page {
             return this;
         }
         return true;
-    }    
-
-    async verifyResetLinkDisplayed()
-    {
-        await this.openCalenderForm()
-        return await expect(await this.resetLink).toBeDisplayed({message:"Reset Link is not displyed in calendar modal"});         
     }
 
-    async verifyResetLinkNotDisplayed()
-    {
+    async verifyResetLinkDisplayed() {
         await this.openCalenderForm()
-        await expect(await this.resetLink).not.toBeDisplayed({message:"Reset Link is displyed in calendar modal"}); 
+        return await expect(await this.resetLink).toBeDisplayed({ message: "Reset Link is not displyed in calendar modal" });
     }
 
-    async clickReset()
-    {
-        await (await this.resetLink).waitForDisplayed({timeoutMsg:"Reset Link is not displyed in calendar modal"})
-        await await(this.resetLink).scrollIntoView();
+    async verifyResetLinkNotDisplayed() {
+        await this.openCalenderForm()
+        await expect(await this.resetLink).not.toBeDisplayed({ message: "Reset Link is displyed in calendar modal" });
+    }
+
+    async clickReset() {
+        await (await this.resetLink).waitForDisplayed({ timeoutMsg: "Reset Link is not displyed in calendar modal" })
+        await await (this.resetLink).scrollIntoView();
         await (await this.resetLink).click();
     }
 
@@ -287,6 +284,7 @@ export class SearchUnit extends Page {
         var presentDate = await (await this.calenderDefaultMonth).getText();
         presentDate = await DateTimeUtility.getDateFormatFromGivenDate(presentDate, "MMMM yyyy", "DD-MMM-yyyy");
         var monthDifference = await DateTimeUtility.getDateDifference(presentDate, date, "month");
+        if (!global.isMobileView) {
         if (monthDifference > 1) {
             for (let i = 0; i < Math.round(Number(monthDifference) - 1); i++) {
                 await (await this.nextMonth).click();
@@ -298,33 +296,42 @@ export class SearchUnit extends Page {
             }
         }
     }
+    }
 
     async selectDate(date) {
         await this.openCalenderForm()
         await this.selectMonthFromCalender(date);
         var dateLevel = await DateTimeUtility.getDateFormatFromGivenDate(date, "DD-MMM-yyyy", "ddd MMM DD yyyy");
+        if (global.isMobileView) {
+            await (await this.calenderDay(dateLevel)).scrollIntoView();
+        }
         await (await this.calenderDay(dateLevel)).click();        
     }
 
     async closeCalenderPopUp() {
         await this.openCalenderForm()
-        await (await this.crossIcon).waitForDisplayed({timeoutMsg:'close Date Icon is not displyed'})
+        await (await this.crossIcon).waitForDisplayed({ timeoutMsg: 'close Date Icon is not displyed' })
         await (await this.crossIcon).click();
         await (await this.crossIcon).waitForDisplayed({ reverse: true })
     }
 
-    async verifyCrossIconDisplayed()
-    {
-        await expect(this.crossIcon).toBeDisplayed({message:"close date modal Icon is not displyed"});
-    } 
-    async verifyCalendarModalClosed()
-    {
-        await expect(this.calenderForm).not.toBeDisplayed({message:"Calendar Modal not closed"});
+    async closeCalendarModalOnMobile() {
+        if (global.isMobileView)
+        {
+            await (await this.crossIcon).click();
+            await (await this.crossIcon).waitForDisplayed({ reverse: true })
+        }            
     }
 
-    async verifyCalendarModalOpened()
-    {
-        await expect(this.calenderForm).toBeDisplayed({message:"Calendar Modal not opened"});
+    async verifyCrossIconDisplayed() {
+        await expect(this.crossIcon).toBeDisplayed({ message: "close date modal Icon is not displyed" });
+    }
+    async verifyCalendarModalClosed() {
+        await expect(this.calenderForm).not.toBeDisplayed({ message: "Calendar Modal not closed" });
+    }
+
+    async verifyCalendarModalOpened() {
+        await expect(this.calenderForm).toBeDisplayed({ message: "Calendar Modal not opened" });
     }
 
     async verifyDateInDateSection(dateSelection) {
@@ -332,194 +339,184 @@ export class SearchUnit extends Page {
         await expect(await this.buttonAddDates).toHaveTextContaining(datetoverify, { ignoreCase: true })
     }
 
-    async validateDateSelectedInDateField(checkInDate,checkOutDate)
-    {       
-        await (await this.buttonAddDates).waitForDisplayed({timeoutMsg:'Date field is not displyed'}) 
+    async validateDateSelectedInDateField(checkInDate, checkOutDate) {
+        await (await this.buttonAddDates).waitForDisplayed({ timeoutMsg: 'Date field is not displyed' })
         await (await this.buttonAddDates).scrollIntoView()
-        var checkinDate=await DateTimeUtility.getDateFormatFromGivenDate(checkInDate,"DD-MMM-yyyy", "MMM D, yyyy")
-        var checkoutDate=await DateTimeUtility.getDateFormatFromGivenDate(checkOutDate,"DD-MMM-yyyy", "MMM D, yyyy")        
-        var dateValue=checkinDate+" - "+checkoutDate;         
-        await expect(await this.buttonAddDates).toHaveText(dateValue)        
-    }
-
-    async validateCheckinDateSelectedInDateField(checkInDate)
-    {
-        await (await this.buttonAddDates).waitForDisplayed({timeoutMsg:'Date field is not displyed'}) 
-        await (await this.buttonAddDates).scrollIntoView()
-        var checkinDate=await DateTimeUtility.getDateFormatFromGivenDate(checkInDate,"DD-MMM-yyyy", "MMM D, yyyy")
-        var dateValue=checkinDate+" -"
+        var checkinDate = await DateTimeUtility.getDateFormatFromGivenDate(checkInDate, "DD-MMM-yyyy", "MMM D, yyyy")
+        var checkoutDate = await DateTimeUtility.getDateFormatFromGivenDate(checkOutDate, "DD-MMM-yyyy", "MMM D, yyyy")
+        var dateValue = checkinDate + " - " + checkoutDate;
         await expect(await this.buttonAddDates).toHaveText(dateValue)
     }
 
-    async verifyCheckiDateHighlightedInCalendarModal(checkInDate)
-    {
-        var checkinDate=await DateTimeUtility.getDateFormatFromGivenDate(checkInDate,"DD-MMM-yyyy", "ddd MMM DD yyyy")            
-        await expect(await this.daysSelected[0]).toHaveAttribute('aria-label', checkinDate)
-    } 
-
-    async validateDateSelectedInFooter(checkInDate,checkOutDate)
-    {       
-        await (await this.footerMessage).scrollIntoView()
-        var checkinDate=await DateTimeUtility.getDateFormatFromGivenDate(checkInDate,"DD-MMM-yyyy", "MMM D, yyyy")    
-        var checkoutDate=await DateTimeUtility.getDateFormatFromGivenDate(checkOutDate,"DD-MMM-yyyy", "MMM D, yyyy")
-        var numberOfNights=await DateTimeUtility.getDateDifference(checkInDate,checkOutDate,"days")     
-        var dateValue=checkinDate+" - "+checkoutDate+" ("+ numberOfNights+" nights)"+" Reset";       
-        await expect(await this.footerMessage).toHaveText(dateValue)        
+    async validateCheckinDateSelectedInDateField(checkInDate) {
+        await (await this.buttonAddDates).waitForDisplayed({ timeoutMsg: 'Date field is not displyed' })
+        await (await this.buttonAddDates).scrollIntoView()
+        var checkinDate = await DateTimeUtility.getDateFormatFromGivenDate(checkInDate, "DD-MMM-yyyy", "MMM D, yyyy")
+        var dateValue = checkinDate + " -"
+        await expect(await this.buttonAddDates).toHaveText(dateValue)
     }
 
-    async validateNumberOfNightsInFooter(checkInDate,checkOutDate)
-    {
-        var numberOfNights=await DateTimeUtility.getDateDifference(checkInDate,checkOutDate,"days")
-        await expect(await this.footerMessage).toHaveTextContaining("("+ numberOfNights+" nights)")
+    async verifyCheckiDateHighlightedInCalendarModal(checkInDate) {
+        var checkinDate = await DateTimeUtility.getDateFormatFromGivenDate(checkInDate, "DD-MMM-yyyy", "ddd MMM DD yyyy")
+        await expect(await this.daysSelected[0]).toHaveAttribute('aria-label', checkinDate)
+    }
+
+    async validateDateSelectedInFooter(checkInDate, checkOutDate) {
+        await (await this.footerMessage).scrollIntoView()
+        var checkinDate = await DateTimeUtility.getDateFormatFromGivenDate(checkInDate, "DD-MMM-yyyy", "MMM D, yyyy")
+        var checkoutDate = await DateTimeUtility.getDateFormatFromGivenDate(checkOutDate, "DD-MMM-yyyy", "MMM D, yyyy")
+        var numberOfNights = await DateTimeUtility.getDateDifference(checkInDate, checkOutDate, "days")
+        var dateValue = checkinDate + " - " + checkoutDate + " (" + numberOfNights + " nights)" + " Reset";
+        await expect(await this.footerMessage).toHaveText(dateValue)
+    }
+
+    async validateNumberOfNightsInFooter(checkInDate, checkOutDate) {
+        var numberOfNights = await DateTimeUtility.getDateDifference(checkInDate, checkOutDate, "days")
+        await expect(await this.footerMessage).toHaveTextContaining("(" + numberOfNights + " nights)")
     }
 
     async verifyDatesValidationMessage(validationMessage) {
-         await expect(await this.buttonAddDates).toHaveTextContaining(validationMessage, { ignoreCase: true })
+        await expect(await this.buttonAddDates).toHaveTextContaining(validationMessage, { ignoreCase: true })
     }
 
-    async verifyDateHeader()
-    {
-        await expect(this.dateHeader).toBeDisplayed({message:"Date header is not displyed"});       
+    async verifyDateHeader() {
+        await expect(this.dateHeader).toBeDisplayed({ message: "Date header is not displyed" });
     }
 
-    async verifyDatePlaceholder(placeholder:string)
-    {
+    async verifyDatePlaceholder(placeholder: string) {
         await this.verifyDatesValidationMessage(placeholder)
     }
 
-    async verifyDateModalHeader(modalHeader:string)
-    {
+    async verifyDateModalHeader(modalHeader: string) {
         await this.openCalenderForm()
-        await (await this.dateModalHeader).waitForDisplayed({timeoutMsg:'Date modal is not displyed'})         
+        await (await this.dateModalHeader).waitForDisplayed({ timeoutMsg: 'Date modal is not displyed' })
         await expect(await this.dateModalHeader).toHaveText(modalHeader, { ignoreCase: true })
-    }      
-
-    async verifyCurrentAndNextMonthText()
-    {
-        await expect(await this.monthAndYear[0]).toHaveText(await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(0,"MMMM yyyy"),{ignoreCase:true})                
-        await expect(await this.monthAndYear[1]).toHaveText(await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(1,"MMMM yyyy"),{ignoreCase:true})
     }
 
-    async verifyDefaultSelectedDay()
-    {
-        await expect(await this.defaultSelectedDay).toHaveText(await DateTimeUtility.addOrSubtractDaysToCurrentDate(0,"D"))
+    async verifyCurrentAndNextMonthText() {
+        await expect(await this.monthAndYear[0]).toHaveText(await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(0, "MMMM yyyy"), { ignoreCase: true })
+        await expect(await this.monthAndYear[1]).toHaveText(await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(1, "MMMM yyyy"), { ignoreCase: true })
     }
-    
-    async validateFooterMessage(footerMessage:string)
-    {
+
+    async verifyDefaultSelectedDay() {
+        await expect(await this.defaultSelectedDay).toHaveText(await DateTimeUtility.addOrSubtractDaysToCurrentDate(0, "D"))
+    }
+
+    async validateFooterMessage(footerMessage: string) {
         await (await this.footerMessage).scrollIntoView()
         await expect(await this.footerMessage).toHaveText(footerMessage)
     }
 
-    async verifyDoneButtonDisplayed()
-    {
+    async verifyDoneButtonDisplayed() {
         await this.openCalenderForm()
-        await (await this.confirmDates).waitForDisplayed({timeoutMsg:'Done button is not displyed'})
-        await (await this.confirmDates).scrollIntoView()        
-        await expect(await this.confirmDates).toBeDisplayed({message:"Date Button is not displyed in calendar modal"})        
-    }
-
-    async verifyDoneButtonNotEnabled()
-    {
-        await expect(this.confirmDates).not.toBeEnabled({message:"Date Button is enabled in calendar modal"}); 
-
-    }
-
-    async verifyDoneButtonEnabled()
-    {
-        await this.openCalenderForm()
-        await (await this.confirmDates).waitForDisplayed({timeoutMsg:'Done button is not displyed'})  
+        await (await this.confirmDates).waitForDisplayed({ timeoutMsg: 'Done button is not displyed' })
         await (await this.confirmDates).scrollIntoView()
-        await expect(await this.confirmDates).toBeEnabled({message:"Date Button is not enabled in calendar modal"})
+        await expect(await this.confirmDates).toBeDisplayed({ message: "Date Button is not displyed in calendar modal" })
     }
 
-    async clickDoneonCalendar()
-    {
+    async verifyDoneButtonNotEnabled() {
+        await expect(this.confirmDates).not.toBeEnabled({ message: "Date Button is enabled in calendar modal" });
+
+    }
+
+    async verifyDoneButtonEnabled() {
         await this.openCalenderForm()
-        await (await this.confirmDates).waitForDisplayed({timeoutMsg:'Done button is not displyed'}) 
+        await (await this.confirmDates).waitForDisplayed({ timeoutMsg: 'Done button is not displyed' })
+        await (await this.confirmDates).scrollIntoView()
+        await expect(await this.confirmDates).toBeEnabled({ message: "Date Button is not enabled in calendar modal" })
+    }
+
+    async clickDoneonCalendar() {
+        await this.openCalenderForm()
+        await (await this.confirmDates).waitForDisplayed({ timeoutMsg: 'Done button is not displyed' })
         await (await this.confirmDates).scrollIntoView()
         await (await this.confirmDates).click()
     }
 
 
-    async verifyPreviousIconDisabled()
-    {
+    async verifyPreviousIconDisabled() {
         await this.openCalenderForm()
-        await expect(await this.previousMonth).not.toBeEnabled({message:"Previous Icon is enabled in calendar modal"});
-    }   
-    
-    async verifyNextIconDisabled()
-    {
-        await this.openCalenderForm()
-        await expect(await this.nextMonth).not.toBeEnabled({message:"NextMonth Icon is enabled in calendar modal"});
-    } 
-
-    async verifyPreviousIconEnabled()
-    {
-        await this.openCalenderForm()
-        await expect(await this.previousMonth).toBeEnabled({message:"Previous Icon is not enabled in calendar modal"});
+        await expect(await this.previousMonth).not.toBeEnabled({ message: "Previous Icon is enabled in calendar modal" });
     }
 
-    async verifyNextIconEnabled()
-    {
+    async verifyNextIconDisabled() {
         await this.openCalenderForm()
-        await expect(await this.nextMonth).toBeEnabled({message:"Next Icon is not enabled in calendar modal"});
+        await expect(await this.nextMonth).not.toBeEnabled({ message: "NextMonth Icon is enabled in calendar modal" });
     }
 
-    async clickonPreviousIcon()
-    {
+    async verifyPreviousIconEnabled() {
         await this.openCalenderForm()
-        await (await this.previousMonth).waitForDisplayed({timeoutMsg:'Previous month is not displyed'}) 
+        await expect(await this.previousMonth).toBeEnabled({ message: "Previous Icon is not enabled in calendar modal" });
+    }
+
+    async verifyNextIconEnabled() {
+        await this.openCalenderForm()
+        await expect(await this.nextMonth).toBeEnabled({ message: "Next Icon is not enabled in calendar modal" });
+    }
+
+    async clickonPreviousIcon() {
+        await this.openCalenderForm()
+        await (await this.previousMonth).waitForDisplayed({ timeoutMsg: 'Previous month is not displyed' })
         await (await this.previousMonth).click()
     }
 
-    async clickonNextIcon()
-    {
+    async clickonNextIcon() {
         await this.openCalenderForm()
-        await (await this.nextMonth).waitForDisplayed({timeoutMsg:'Next month is not displyed'})         
-        await (await this.nextMonth).click();                
+        await (await this.nextMonth).waitForDisplayed({ timeoutMsg: 'Next month is not displyed' })
+        await (await this.nextMonth).click();
     }
 
-    async verifyIsNextMonthDisplayed()
-    {
+    async verifyIsNextMonthDisplayed() {
         await this.openCalenderForm()
-        var monthToDisplay=await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(2,"MMMM yyyy")       
-        await (await this.monthAndYear[1]).waitForDisplayed({timeoutMsg:'Next month is not displyed'}) 
-        await expect(await this.monthAndYear[1]).toHaveText(monthToDisplay,{ignoreCase:true,message:"Next month Text is not Matched "})
+        var monthToDisplay = await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(2, "MMMM yyyy")
+        await (await this.monthAndYear[1]).waitForDisplayed({ timeoutMsg: 'Next month is not displyed' })
+        await expect(await this.monthAndYear[1]).toHaveText(monthToDisplay, { ignoreCase: true, message: "Next month Text is not Matched " })
     }
 
-    async verifyIsPreviousMonthDisplayed()
-    {
+    async verifyIsPreviousMonthDisplayed() {
         await this.openCalenderForm()
-        var monthToDisplay=await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(1,"MMMM yyyy")        
-        await (await this.monthAndYear[1]).waitForDisplayed({timeoutMsg:'Next month is not displyed'}) 
-        await expect(await this.monthAndYear[1]).toHaveText(monthToDisplay,{ignoreCase:true})
+        var monthToDisplay = await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(1, "MMMM yyyy")
+        await (await this.monthAndYear[1]).waitForDisplayed({ timeoutMsg: 'Next month is not displyed' })
+        await expect(await this.monthAndYear[1]).toHaveText(monthToDisplay, { ignoreCase: true })
     }
 
-    async verifyNumberOfMonthsTobedisplayedinCalendar()
-    {
+    async verifyNumberOfMonthsTobedisplayedinCalendar() {
         await this.openCalenderForm()
-        var LastMonthToDisplayInCalendar=await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(MaxCalendarMonths,"MMMM yyyy") 
-        for(let counter=1;counter<=MaxCalendarMonths-1;counter++)
-        {
-            await this.nextMonth.click(); 
-        }               
-        await expect(await this.monthAndYear[1]).toHaveText(LastMonthToDisplayInCalendar,{ignoreCase:true})  
-        await this.verifyNextIconDisabled()             
-    }
+        var LastMonthToDisplayInCalendar = await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(MaxCalendarMonths, "MMMM yyyy")
 
-    async verifyDisableDaysBeforeToday()
-    {
-        const daySelected : number = Number(await this.defaultSelectedDay.getText())   
-        const currentMonthandYear=await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(0,'MMM YYYY')         
-        for(let counter=daySelected-1;counter>=1;counter--)
-        {                                   
-            const datevalue=await DateTimeUtility.getDateFormatFromGivenDate(counter+" " +currentMonthandYear,'DD MMM YYYY','ddd MMM DD yyyy')            
-            await expect(await this.calenderDay(datevalue)).toHaveAttribute('aria-disabled', 'true',{message:"Day "+counter + " : is not disabled"})           
+        if (global.isMobileView) {
+            await (await this.monthAndYear[35]).scrollIntoView();
+            console.log("Last Month : " + await (await this.monthAndYear[35].getText()))
+            //await expect(await this.monthAndYear[35]).toHaveText(LastMonthToDisplayInCalendar, { ignoreCase: true })
+        }
+        else {
+            for (let counter = 1; counter <= MaxCalendarMonths - 1; counter++)
+                await this.nextMonth.click();
+            await expect(await this.monthAndYear[1]).toHaveText(LastMonthToDisplayInCalendar, { ignoreCase: true })
+            await this.verifyNextIconDisabled()
         }
     }
 
-    
+    async verifyDisableDaysBeforeToday() {
+        const daySelected: number = Number(await this.defaultSelectedDay.getText())
+        const currentMonthandYear = await DateTimeUtility.addOrSubtractMonthsToCurrentMonth(0, 'MMM YYYY')
+        for (let counter = daySelected - 1; counter >= 1; counter--) {
+            const datevalue = await DateTimeUtility.getDateFormatFromGivenDate(counter + " " + currentMonthandYear, 'DD MMM YYYY', 'ddd MMM DD yyyy')
+            await expect(await this.calenderDay(datevalue)).toHaveAttribute('aria-disabled', 'true', { message: "Day " + counter + " : is not disabled" })
+        }
+    }
+
+    async ValidateManualEnterDate()
+    {
+        try {
+            await (await this.buttonAddDates).setValue("Jun");            
+        }
+        catch (error) {
+            expect(await this.buttonAddDates).not.toHaveTextContaining("Jun", { ignoreCase: true })            
+        }        
+    }
+
+
 
     //#endregion
 
@@ -533,12 +530,11 @@ export class SearchUnit extends Page {
             expect(await this.popupRoomandGuest).toBeDisplayed();
         }
     }
-    async verifyRoomsAndGuestsModalClosed()
-    {
+    async verifyRoomsAndGuestsModalClosed() {
         expect(await this.popupRoomandGuest).not.toBeDisplayed();
     }
 
-    async selectRoom(roomCount :Number) {
+    async selectRoom(roomCount: Number) {
         (await this.jsClick(await this.inputRoomSelection(roomCount)))
     }
 
@@ -566,10 +562,9 @@ export class SearchUnit extends Page {
         }
     }
 
-    async verifyAdultsCountInRooms(roomNumber:string,adultCount:string)
-    {
+    async verifyAdultsCountInRooms(roomNumber: string, adultCount: string) {
         var actualAdultsCount = await (await this.inputAdultField(roomNumber)).getValue();
-         expect(Number(adultCount)).toEqual(Number(actualAdultsCount));
+        expect(Number(adultCount)).toEqual(Number(actualAdultsCount));
     }
 
     async selectChildren(roomNumber, ChildrenCount) {
@@ -584,7 +579,7 @@ export class SearchUnit extends Page {
                 await this.waitForPageLoad();
             }
         }
-        else  {
+        else {
             for (let i = 0; i < Math.abs(Number(diff)); i++) {
                 await (await this.minusIconChildrenField(roomNumber)).click();
                 await this.waitForPageLoad();
@@ -592,8 +587,7 @@ export class SearchUnit extends Page {
         }
 
     }
-    async verifyChildrenCountRoomWise(roomNumber,childrenCount)
-    {
+    async verifyChildrenCountRoomWise(roomNumber, childrenCount) {
         var selectedChildren = await (await this.inputChildrenField(await roomNumber)).getValue();
         expect(Number(await childrenCount)).toEqual(Number(await selectedChildren));
     }
@@ -607,11 +601,10 @@ export class SearchUnit extends Page {
         await (await this.childAgeInputAlert).waitForDisplayed();
         await (await this.childAgeInputAlertButton(await Age)).click();
         await this.waitForPageLoad();
-        
+
     }
 
-    async verifyChildrenAgeRoomWise(roomNumber,childNumber, childAge)
-    {
+    async verifyChildrenAgeRoomWise(roomNumber, childNumber, childAge) {
         var selectedChildAge = await (await this.childInput(await roomNumber, await childNumber)).getValue();
         expect(Number(childAge)).toEqual(Number(selectedChildAge));
     }
@@ -622,7 +615,10 @@ export class SearchUnit extends Page {
     }
 
     async selectRoomAndGuests(gestInfo) {
-        gestInfo = JSON.parse(gestInfo);
+        try {
+            gestInfo = JSON.parse(gestInfo);
+        }
+        catch (error) { }
         await this.openRoomsAndGuestsModal();
         var totalRooms = await Number(gestInfo.length);
         var childInfo;
@@ -634,16 +630,16 @@ export class SearchUnit extends Page {
             var AdulutCountRoomWise = await gestInfo[Number(i) - 1]["Adults"];
             totalAdult = Number(totalAdult) + Number(AdulutCountRoomWise);
             await this.selectAdult(i, AdulutCountRoomWise);
-            await this.verifyAdultsCountInRooms(i.toString(),AdulutCountRoomWise);
+            await this.verifyAdultsCountInRooms(i.toString(), AdulutCountRoomWise);
             //@ total child count
             childInfo = await gestInfo[Number(i) - 1]["Child"];
             try {
                 totalChild = Number(totalChild) + Number(childInfo.length);
                 await this.selectChildren(i, childInfo.length);
-                await this.verifyChildrenCountRoomWise(i,childInfo.length);
+                await this.verifyChildrenCountRoomWise(i, childInfo.length);
                 for (let j = 1; j <= childInfo.length; j++) {
                     await this.selectChildAge(i, j, childInfo[Number(j - 1)]);
-                    await this.verifyChildrenAgeRoomWise(i,j,childInfo[Number(j - 1)]);
+                    await this.verifyChildrenAgeRoomWise(i, j, childInfo[Number(j - 1)]);
                 }
             }
             catch (error) { }
@@ -687,112 +683,93 @@ export class SearchUnit extends Page {
 
     }
 
-    async verifyGuests(guestsText: string)
-    {
+    async verifyGuests(guestsText: string) {
         await expect(await this.buttonGuests).toHaveTextContaining(guestsText, { ignoreCase: true })
     }
 
-    async verifyColorForRoom(roomNumber :string,colorName:string)
-    {
+    async verifyColorForRoom(roomNumber: string, colorName: string) {
         const blueColorSeries = Color.highlited;
         const greyColorSeries = Color.unselected;
-        const color = await ( await this.areaRoomSelection(roomNumber)).getCSSProperty('background-color')
-        
-        switch(colorName.toLocaleLowerCase().trim())
-        {
+        const color = await (await this.areaRoomSelection(roomNumber)).getCSSProperty('background-color')
+
+        switch (colorName.toLocaleLowerCase().trim()) {
             case "blue":
             case "highlighted":
                 expect(blueColorSeries).toContain(color.value);
                 break;
-                case"grey":
+            case "grey":
                 expect(greyColorSeries).toContain(color.value);
                 break;
-                default:
-                    expect(false).toBe("feature file has wrong color name")
+            default:
+                expect(false).toBe("feature file has wrong color name")
         }
     }
 
-    async disabledCheckForIncreaseIconForAdults(roomNumber)
-    {
+    async disabledCheckForIncreaseIconForAdults(roomNumber) {
         await expect(await this.plusIconAdultField(roomNumber)).toBeDisabled();
     }
 
-    async disabledCheckForDecreaseIconForAdults(roomNumber)
-    {
+    async disabledCheckForDecreaseIconForAdults(roomNumber) {
         await expect(await this.minusIconAdultField(roomNumber)).toBeDisabled();
     }
 
-    async enabledCheckForIncreaseIconForAdults(roomNumber)
-    {
+    async enabledCheckForIncreaseIconForAdults(roomNumber) {
         await expect(await this.plusIconAdultField(roomNumber)).toBeEnabled()
     }
 
-    async enabledCheckForDecreaseIconForAdults(roomNumber)
-    {
+    async enabledCheckForDecreaseIconForAdults(roomNumber) {
         await expect(await this.minusIconAdultField(roomNumber)).toBeEnabled();
     }
 
-    async disabledCheckForIncreaseIconForChildren(roomNumber)
-    {
+    async disabledCheckForIncreaseIconForChildren(roomNumber) {
         await expect(await this.plusIconChildrenField(roomNumber)).toBeDisabled();
     }
 
-    async disabledCheckForDecreaseIconForChildren(roomNumber)
-    {
+    async disabledCheckForDecreaseIconForChildren(roomNumber) {
         await expect(await this.minusIconChildrenField(roomNumber)).toBeDisabled();
     }
 
-    async verifyHelpMessage(helpText)
-    {
-        await expect(await this.helpMessage).toHaveTextContaining(helpText,{ ignoreCase: true })
+    async verifyHelpMessage(helpText) {
+        await expect(await this.helpMessage).toHaveTextContaining(helpText, { ignoreCase: true })
     }
 
-    async verifyRoomsInformation(roomInformation:string)
-    {
-        await expect(await this.roomInformationMessage).toHaveTextContaining(await roomInformation,{ ignoreCase: true })
+    async verifyRoomsInformation(roomInformation: string) {
+        await expect(await this.roomInformationMessage).toHaveTextContaining(await roomInformation, { ignoreCase: true })
     }
 
-    async verifyAdultsInformation(adultsInformation)
-    {
-        await expect(await this.adultsInformationMessage).toHaveTextContaining(adultsInformation,{ ignoreCase: true })
+    async verifyAdultsInformation(adultsInformation) {
+        await expect(await this.adultsInformationMessage).toHaveTextContaining(adultsInformation, { ignoreCase: true })
     }
 
-    async verifyChildrenInformation(childrenInformation)
-    {
-        await expect(await this.childrenInformationMessage).toHaveTextContaining(childrenInformation,{ ignoreCase: true })
+    async verifyChildrenInformation(childrenInformation) {
+        await expect(await this.childrenInformationMessage).toHaveTextContaining(childrenInformation, { ignoreCase: true })
     }
 
-    async verifyAgeValidationMessage()
-    {
+    async verifyAgeValidationMessage() {
         await expect(await this.ageValidation).toBeDisplayed();
     }
 
-    async verifyAgeValidationMessageInRedColor()
-    {
+    async verifyAgeValidationMessageInRedColor() {
         const redColorSeries = Color.error;
-        var color  = await this.ageValidation.getCSSProperty('color')
+        var color = await this.ageValidation.getCSSProperty('color')
         expect(redColorSeries).toContain(await color.value);
     }
 
-    async verifyChildAgeBoxInRedColor(roomNumber,childNumber)
-    {
+    async verifyChildAgeBoxInRedColor(roomNumber, childNumber) {
         const redColorSeries = Color.error;
-        var color  = await (await this.childInput(roomNumber,childNumber)).getCSSProperty('border-bottom-color')
+        var color = await (await this.childInput(roomNumber, childNumber)).getCSSProperty('border-bottom-color')
         expect(redColorSeries).toContain(await color.value);
     }
 
-    async enabledCheckForDoneButton()
-    {
+    async enabledCheckForDoneButton() {
         await expect(await this.buttonDone).toBeEnabled();
     }
 
-    async disabledCheckForDoneButton()
-    {
+    async disabledCheckForDoneButton() {
         await expect(await this.buttonDone).toBeDisabled();
     }
 
-    async verifyChildAgeBoxNotDisplayed(roomNumber)
-    {
+    async verifyChildAgeBoxNotDisplayed(roomNumber) {
         await expect(await this.childInput(roomNumber, 1)).not.toBeDisplayed();
     }
 
@@ -811,7 +788,7 @@ export class SearchUnit extends Page {
     //#region [Search Unit Tab]
 
     public async selectTab(tabName) {
-        await (await this.productTabName(tabName)).waitForDisplayed({timeoutMsg:'Next month is not displyed'})
+        await (await this.productTabName(tabName)).waitForDisplayed({ timeoutMsg: 'Next month is not displyed' })
         await (await this.productTabName(tabName)).click();
     }
     //#endregion [Search Unit Tab]

@@ -1,7 +1,8 @@
 const moment = require('moment');
 export class Utility {
 
-    //#region [Generic Method]    
+    //#region [Generic Method]
+
     async addOrSubtractDaysToCurrentDate(addorSubtractDays=0, dateFormat="DD-MMM-yyyy") {
         const presentDate = await new Date();
         var returnDate= await moment(presentDate).add(Number(addorSubtractDays), 'days');
