@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Guest Information" timestamp="2022-06-02T15:07:50" time="7.917" tests="1" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="featureName" value="Guest Information"/>
+      <property name="capabilities" value="chrome.101_0_4951_54.windows"/>
+      <property name="featureFile" value=".\features\guestInformation\guestInfoPage.feature"/>
+    </properties>
+    <testcase classname="CucumberJUnitReport-chrome.101_0_4951_54.windows.Guest Information" name="Verify Choose Payment options" time="7.852">
+      <system-out><![CDATA[
+✅ Given I am on Guest information page with tripId '76c24735-32c2-4656-a40d-9b839ebfab06'✅ Then Choose a payment header should be <Choose a payment method>✅ And Payment options should be displayed✅ And 'card' payment option should be selected✅ Then Payment terms and conditions should not be displayed✅ When I choose payment option as 'paypal'✅ Then 'paypal' payment option should be selected✅ Then Payment terms and conditions should be displayed✅ When I choose payment option as 'apple'✅ Then 'apple' payment option should be selected✅ Then Payment terms and conditions should be displayed✅ When I choose payment option as 'gpay'✅ Then 'gpay' payment option should be selected✅ Then Payment terms and conditions should be displayed
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

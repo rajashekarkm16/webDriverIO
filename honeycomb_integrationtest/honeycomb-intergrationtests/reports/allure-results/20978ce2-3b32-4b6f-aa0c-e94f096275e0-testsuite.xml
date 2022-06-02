@@ -1,0 +1,111 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1654162670960' stop='1654162678864'>
+    <name>Guest Information</name>
+    <title>Guest Information</title>
+    <test-cases>
+        <test-case start='1654162671011' status='passed' stop='1654162678863'>
+            <name>Verify Choose Payment options</name>
+            <title>Verify Choose Payment options</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-101.0.4951.54'/>
+                <parameter kind='environment-variable' name='Application URL' value='http://localhost:3001/'/>
+                <parameter kind='environment-variable' name='Execution Platform' value='Tablet Emulator'/>
+                <parameter kind='environment-variable' name='Device Name' value='iPad Pro'/>
+            </parameters>
+            <steps>
+                <step start='1654162671015' status='passed' stop='1654162671026'>
+                    <name>Given I am on Guest information page with tripId '76c24735-32c2-4656-a40d-9b839ebfab06'</name>
+                    <title>Given I am on Guest information page with tripId '76c24735-32c2-4656-a40d-9b839ebfab06'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162671026' status='passed' stop='1654162676378'>
+                    <name>Then Choose a payment header should be &lt;Choose a payment method></name>
+                    <title>Then Choose a payment header should be &lt;Choose a payment method></title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162676378' status='passed' stop='1654162676625'>
+                    <name>And Payment options should be displayed</name>
+                    <title>And Payment options should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162676626' status='passed' stop='1654162676691'>
+                    <name>And 'card' payment option should be selected</name>
+                    <title>And 'card' payment option should be selected</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162676691' status='passed' stop='1654162676725'>
+                    <name>Then Payment terms and conditions should not be displayed</name>
+                    <title>Then Payment terms and conditions should not be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162676725' status='passed' stop='1654162677139'>
+                    <name>When I choose payment option as 'paypal'</name>
+                    <title>When I choose payment option as 'paypal'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677139' status='passed' stop='1654162677219'>
+                    <name>Then 'paypal' payment option should be selected</name>
+                    <title>Then 'paypal' payment option should be selected</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677219' status='passed' stop='1654162677238'>
+                    <name>Then Payment terms and conditions should be displayed</name>
+                    <title>Then Payment terms and conditions should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677239' status='passed' stop='1654162677636'>
+                    <name>When I choose payment option as 'apple'</name>
+                    <title>When I choose payment option as 'apple'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677636' status='passed' stop='1654162677758'>
+                    <name>Then 'apple' payment option should be selected</name>
+                    <title>Then 'apple' payment option should be selected</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677758' status='passed' stop='1654162677778'>
+                    <name>Then Payment terms and conditions should be displayed</name>
+                    <title>Then Payment terms and conditions should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162677778' status='passed' stop='1654162678208'>
+                    <name>When I choose payment option as 'gpay'</name>
+                    <title>When I choose payment option as 'gpay'</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162678208' status='passed' stop='1654162678338'>
+                    <name>Then 'gpay' payment option should be selected</name>
+                    <title>Then 'gpay' payment option should be selected</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1654162678339' status='passed' stop='1654162678367'>
+                    <name>Then Payment terms and conditions should be displayed</name>
+                    <title>Then Payment terms and conditions should be displayed</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='8e5589ea-cfc5-4bcb-8cfe-843d15ea6107-attachment.png' type='image/png' size='323974'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
